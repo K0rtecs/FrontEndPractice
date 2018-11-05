@@ -59,11 +59,14 @@
 
     window.myTruck = myTruck;
     formHandler.addSubmitHandler(function (data) {
-        myTruck.createOrder.call(myTruck, data);
-        checkList.reinitForm.call(checkList, FORM_SELECTOR);
-        checkList.addRow.call(checkList, data);
-        sliderHandler.addRatingReset();
+        return myTruck.createOrder.call(myTruck, data)
+            .then(function () {
+                checkList.reinitForm.call(checkList, FORM_SELECTOR);
+                checkList.addRow.call(checkList, data);
+                sliderHandler.addRatingReset();
+            });
     });
+
     formHandler.addInputHandler(Validation.isCompanyEmail);
     formHandler.addCoffeeOrderHandler(Validation.isDecaf);
     webshim.polyfill('forms forms-ext');

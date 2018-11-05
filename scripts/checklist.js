@@ -23,10 +23,11 @@
         // Time 2 seconds the main one click event
         this.$element.on('click', 'span', function (event) {
             var email = event.target.value;
-            console.log(event.type);
             setTimeout(function () {
-                this.removeRow(email);
-                fn(email);
+                fn(email)
+                    .then(function () {
+                        this.removeRow(email);
+                    });
             }.bind(this), 200);
         }.bind(this));
     };
