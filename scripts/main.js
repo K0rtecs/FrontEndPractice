@@ -27,6 +27,11 @@
     - Trigger the custom validation for whichever field is currently being edited and caused the validation failure.
     */
 
+    /* --  --
+    * Fallback to DataStore
+    * In caz ca ajax req nu pot ajunge la serv fal sa se intoarcainapoi la DataStore.
+    */
+
     var FLAVOR_WINDOW = '[data-flavor-window="select"]';
     var FLAVOR_SELECTOR = '[data-flavor-option]';
     var SLIDER_SELECTOR = '[data-strength-level="slider"]';
@@ -46,7 +51,7 @@
     var webshim = window.webshim;
 
     var remoteDS = new RemoteDataStore(SERVER_URL);
-    var myTruck = new Truck('ncc-1701', remoteDS);
+    var myTruck = new Truck('ncc-1701', new DataStore());
     var checkList = new CheckList(CHECKLIST_SELECTOR);
     var formHandler = new FormHandler(FORM_SELECTOR);
     var colorOption = new ColorFlavor(FLAVOR_SELECTOR, FLAVOR_WINDOW);
