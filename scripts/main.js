@@ -68,6 +68,8 @@
     });
 
     formHandler.addInputHandler(Validation.isCompanyEmail);
+    myTruck.printOrders(checkList.addRow.bind(checkList));
+
     formHandler.addCoffeeOrderHandler(Validation.isDecaf);
     webshim.polyfill('forms forms-ext');
     webshim.setOptions('forms', {addValidators: true, lazyCustomMessages: true});
