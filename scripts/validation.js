@@ -4,7 +4,7 @@
 
     var Validation = {
         isCompanyEmail: function (email) {
-            return /.+@bignerdranch\.com$/.test(email);
+            return /.+@enormocorp\.com$/.test(email);
         },
         isDecaf: function (strIn, intIn) {
             if (strIn === 'decaf' && intIn > 20) {
